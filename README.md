@@ -1,0 +1,2 @@
+toorange.ru django realization
+==============================

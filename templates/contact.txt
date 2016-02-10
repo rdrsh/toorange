@@ -1,0 +1,7 @@
+{% autoescape off %}Сообщение от {{ name }}
+
+Имя: {{ name }}
+E-mail: {{ email }}
+Сообщение: 
+{{ message }}
+{% endautoescape %}

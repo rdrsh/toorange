@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+
+{% block col1extra %}
+    {% if vars %}
+        <h1>Сообщение отправлено</h1>
+        <p>Ваше сообщение отправлено</p>
+        {# emailDump #}
+    {% else %}
+        <h1>Отправить сообщение:</h1>
+        <p>&nbsp;</p>
+        <form action="" method="post">
+            {% autoescape off %}{{ form.as_p_br }}{% endautoescape %}
+            <input class="submit" type="image" src="/img/faq_butt.gif"/>
+        </form>
+    {% endif %}
+{% endblock %} 

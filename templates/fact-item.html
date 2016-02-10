@@ -1,0 +1,17 @@
+{% extends "page.html" %}
+
+{% block title %}{{ fact.title }}{% endblock %}
+
+{% block col1 %}
+<div class="top-level"><a href="/{{ page.slug }}/">← вернуться в «{{ page.title }}»</a></div>
+<h1>{{ fact.title }}</h1>
+<div class="wysiwyg">{% autoescape off %}{{ fact.content }}{% endautoescape %}</div>
+{% endblock %} 
+
+{% block col2 %}
+    <div id="level-2-links">
+    {% for i in items %}
+        <div{% ifequal id i.id %} class="active"{% endifequal %}><a href="/facts/{{ i.id }}/">{{ i.title }}</a></div>
+    {% endfor %}
+    </div>
+{% endblock %} 

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="index-annotation">{% autoescape off %}{{ page.content }}{% endautoescape %}</div>
+<div id="content">
+    <div id="product-block">
+    {% for i in products %}
+        <div class="product-item">
+            <!--width="{{ i.w }}" height="{{ i.h }}" -->
+            <img src="/{{ i.img }}" alt="{{ i.title }}"/>
+            <h1><a href="/products/{{ i.id }}/">{{ i.title }}</a></h1>
+            <div class="annotation wysiwyg">{% autoescape off %}{{ i.annotation }}{% endautoescape %}</div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div id="faq-block">
+        <div class="faq-header">Вопрос&nbsp;&nbsp;&nbsp;&nbsp;<a href="/faq/">другие вопросы</a></div>
+        <div style="clear:both"></div>
+        {% for i in faq %}
+            <div class="faq-item">
+                <div class="q">{{ i.question }}</div>
+                <div class="ahr"></div>
+                <div class="a">{{ i.answer }}</div>
+                <div class="ahr"></div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div style="clear:both"></div>
+
+    <div id="event-block">
+        <h1>Новости</h1>
+        {% for i in events %}
+            <div class="event-item">
+                <div class="title"><a href="/events/{{ i.id }}/">{{ i.title }}</a></div>
+                <div class="annotation">{{ i.annotation }}</div>
+            </div>
+        {% endfor %}
+        <br/>
+        <a href="/events/" class="link">все события</a>
+    </div>
+
+    <div id="fact-block">
+        <h1>Это интересно</h1>
+        {% for i in facts %}
+            <div class="fact-item">
+                <div class="title"><a href="/facts/{{ i.id }}/">{{ i.title }}</a></div>
+                <div class="annotation">{{ i.annotation }}</div>
+            </div>
+        {% endfor %}
+        <br/>
+        <a href="/facts/" class="link facts-link">все факты</a>
+    </div>
+
+    <div style="clear:both"></div>
+    &nbsp;
+
+</div>
+<!-- preload images -->
+<div style="display:none;">
+   <img src="/img/header.jpg" width="1" height="1" alt="" />
+   <img src="/img/header-adv.jpg" width="1" height="1" alt="" />
+</div>
+{% endblock %} 

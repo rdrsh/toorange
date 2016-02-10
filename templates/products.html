@@ -1,0 +1,18 @@
+{% extends "page.html" %}
+
+{% load pagination_tags %} 
+
+{% block col1extra %}
+    {% autopaginate items 10 %}
+    {% for i in items %}
+        <div class="lst-item">
+            <!--width="{{ i.w }}" height="{{ i.h }}" -->
+            <img src="/{{ i.img }}" alt="{{ i.title }}" class="product-img"/>
+            <div class="product-annotation">
+                <h2><a href="{{ i.id }}/">{{ i.title }}</a></h2>
+                <div class="annotation wysiwyg">{% autoescape off %}{{ i.annotation }}{% endautoescape %}</div>
+            </div>
+        </div>
+    {% endfor %}
+    {% paginate %}
+{% endblock %} 

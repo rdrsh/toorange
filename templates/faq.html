@@ -1,0 +1,26 @@
+{% extends "page.html" %}
+
+{% load pagination_tags %}
+
+{% block col1extra %}
+    {% autopaginate items 10 %}
+    {% for i in items %}
+        <div class="lst-item">
+            <div class="q">{{ i.question }}</div>
+            <div class="a">{{ i.answer }}</div>
+        </div>
+    {% endfor %}
+    {% paginate %}
+    
+
+    {% if vars %}
+        <p>Ваш вопрос отправлен</p>
+        {# emailDump #}
+    {% endif %}
+
+    <h2>Задайте вопрос:</h2>
+    <form action="" method="post">
+        {% autoescape off %}{{ form.as_p_br }}{% endautoescape %}
+        <input class="submit" type="image" src="/img/faq_butt.gif"/>
+    </form>
+{% endblock %} 

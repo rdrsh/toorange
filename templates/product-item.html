@@ -1,0 +1,13 @@
+{% extends "page.html" %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block col1 %}
+<div class="top-level"><a href="/{{ page.slug }}/">← вернуться в «{{ page.title }}»</a></div>
+<h1>{{ product.title }}</h1>
+<p>&nbsp;</p>
+<!--width="{{ product.w }}" height="{{ product.h }}" -->
+<img src="/{{ product.img }}" alt="{{ product.title }}" class="product-img"/>
+<div class="annotation wysiwyg product-annotation">{% autoescape off %}{{ product.annotation }}{% endautoescape %}</div>
+<div class="description wysiwyg">{% autoescape off %}{{ product.description }}{% endautoescape %}</div>
+{% endblock %} 

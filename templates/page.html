@@ -1,0 +1,16 @@
+{% extends "2-col.html" %}
+
+{% block col1 %}
+    {% if page.page %}<div class="top-level"><a href="/{{ page.page.slug }}/">← вернуться в «{{ page.page.title }}»</a></div>{% endif %}
+    <div class="wysiwyg">{% autoescape off %}{{ page.content }}{% endautoescape %}</div>
+{% endblock %} 
+
+{% block col2 %}
+    {% if page.level2 %}
+        <div id="level-2-links">
+        {% for i in page.level2 %}
+            <div class="{% ifequal i.slug2 slug2 %}active{% endifequal %}"><a href="/{{ i.slug2 }}/">{{ i.title }}</a></div>
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %} 

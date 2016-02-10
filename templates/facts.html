@@ -1,0 +1,15 @@
+{% extends "page.html" %}
+
+{% load pagination_tags %} 
+
+{% block col1extra %}
+    {% autopaginate items 10 %}
+    
+    {% for i in items %}
+        <div class="lst-item">
+            <h2><a href="{{ i.id }}/">{{ i.title }}</a></h2>
+            <div class="annotation">{% autoescape off %}{{ i.annotation }}{% endautoescape %}</div>
+        </div>
+    {% endfor %}
+    {% paginate %}
+{% endblock %} 

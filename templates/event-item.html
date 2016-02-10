@@ -1,0 +1,9 @@
+{% extends "page.html" %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block col1 %}
+<div class="top-level"><a href="/{{ page.slug }}/">← вернуться в «{{ page.title }}»</a></div>
+<h1>{{ event.title }}</h1>
+<div class="wysiwyg">{% autoescape off %}{{ event.content }}{% endautoescape %}</div>
+{% endblock %} 

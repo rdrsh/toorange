@@ -1,0 +1,7 @@
+{% autoescape off %}Вопрос от {{ name }}
+
+Имя: {{ name }}
+E-mail: {{ email }}
+Вопрос: 
+{{ question }}
+{% endautoescape %}

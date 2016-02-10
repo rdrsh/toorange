@@ -1,0 +1,33 @@
+{% extends "page.html" %}
+
+{% block col1extra %}
+<table id="buy-table" style="width:100%">
+    <tr>
+    {% for col in colList %}
+        <td>
+<ul>
+{% for c in col %}
+    <li>
+        {{ c }}
+        <ul>
+        {% for t in c.townList %}
+            {% if t.addressCount %}
+                <li>
+                    {{ t.title }}
+                    <ul>
+                    {% for a in t.addressList %}
+                        <li>{{ a }}</li>
+                    {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+</ul>
+        </td>
+    {% endfor %}
+    </tr>
+</table>
+{% endblock %} 
